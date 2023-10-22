@@ -1,34 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { Suspense } from "react";
+import { Html, useProgress } from "@react-three/drei";
+import { PerspectiveCamera } from "@react-three/drei";
+import Track from "./Track";
+import Character from "./Character";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+import "./App.css";
+function Loader() {
+  const { progress } = useProgress();
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <Html center>
+      <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-12 w-12 mb-2"></div>
+      <h2 class="text-center text-white text-l font-semibold">
+        {progress.toFixed(0)} % loading...
+      </h2>
+      {/*    <p class="w-1/3 mx-auto text-white text-sm text-center">
+        Please wait while we load the assets.
+      </p> */}
+    </Html>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Canvas className="w-full h-full bg-black" style={{}}>
+      <PerspectiveCamera
+        makeDefault
+        position={[0, 0.6, 97]}
+        rotation={[0, 0, 0]}
+        fov={60}
+      />
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, 10]} intensity={1} />
+      <spotLight position={[0, 10, 10]} intensity={1} />
+      <Suspense fallback={<Loader />}>
+        <ambientLight />
+        <Track />
+        <Character animationNames={["Armature|mixamo.com|Layer0"]} />
+        <OrbitControls />
+      </Suspense>
+    </Canvas>
+  );
+}
+
+export default App;
