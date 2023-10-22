@@ -1,0 +1,26 @@
+/* StatisticsCard.css */
+.statistics-card {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  transform: skew(-10deg);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  color: white;
+  text-align: center;
+}
+.title,
+.value {
+  margin: 0;
+  padding: 2px 0;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.value {
+  font-size: 16px;
+}

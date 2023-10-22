@@ -1,0 +1,36 @@
+/* CheerUpButton.css */
+.cheer-up-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #7f00ba; /* Blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cheer-up-button:hover {
+  background-color: rgb(92, 6, 92); /* Darker blue */
+}
+
+.dialog {
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(37, 37, 37, 0.5);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  color: white;
+}
+
+.dialog.hidden {
+  opacity: 0;
+}
