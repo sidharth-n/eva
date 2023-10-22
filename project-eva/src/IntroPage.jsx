@@ -12,29 +12,31 @@ function IntroPage({ onJoin }) {
       <div className="intro-content p-2">
         <div className="text-container">
           <h1 className="mb-4 text-xl font-bold">Who am I ?</h1>
+
           <p>
-            {" "}
-            Hello! My name is Tim. A while ago, I discovered a way to travel
-            through time. Curious, I set the coordinates and jumped to the year
-            2050. What I saw there was heart-wrenching. The world was torn apart
-            by wars, hatred, and mistrust. Nature was rebelling against us, and
-            people were suffering. I rushed back to our time, desperate to warn
-            everyone. I tried talking to scientists, government officials, and
-            other important people, but no one believed my tale. I realized that
-            I needed to do something big to get everyone's attention. So, here I
-            am, running a never-ending virtual marathon to spread the message of
-            peace and unity. As I run, there will be a message displayed
-            alongside me, reflecting what we need to focus on to prevent the
-            grim future I witnessed. The message might change with the
-            situations around the world, urging us to act together. You're not
-            just spectators but a crucial part of this journey. By giving me
-            virtual energy drinks and cheering for me, you help me keep running
-            and spreading the message. Every cheer, every drink helps to keep me
-            going, and in turn, helps to keep the message alive. So come, join
-            me in this marathon for peace. Together, we can change the course of
-            the future and create a world filled with love, understanding, and
-            harmony.
-          </p>{" "}
+            Hey there, humans! <br /> This is Tim, and I come with an urgent
+            message from the future that we must act on now! I discovered time
+            travel and went to the year 2050. What I witnessed was devastating -
+            a world torn apart by war, suffering, and environmental destruction.
+            <br />
+            I rushed back, desperate to warn everyone before it's too late. I
+            <br />
+            tried telling scientists and leaders, but no one believed me. So now
+            <br />
+            I'm running an endless virtual marathon, displaying a message of
+            <br />
+            peace, unity and care for our planet. The message changes to reflect
+            <br />
+            the critical issues we must address today. You're not just
+            <br />
+            spectators - by giving me energy and cheering, you keep me and this
+            <br />
+            vital message going. Together we can change the course of the
+            <br />
+            future. Join my marathon for peace! Spread the word and run with me
+            <br />
+            however you can!
+          </p>
         </div>
         <div className="relative pt-1 px-8">
           {/* Replace existing progress display with the provided Tailwind component */}
@@ -66,7 +68,7 @@ function IntroPage({ onJoin }) {
               !isLoaded ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >
-            {isLoaded ? "Join me" : "Loading..."}
+            {isLoaded ? "Join" : "Loading..."}
           </button>
         </div>
       </div>

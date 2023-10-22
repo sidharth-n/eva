@@ -52,6 +52,10 @@ function App() {
   return (
     <div className="relative w-full h-full">
       {isIntroVisible && <IntroPage onJoin={handleJoin} />}
+      <div
+        className={`overlay ${isIntroVisible ? "" : "hidden"}`}
+        style={{ zIndex: 10 }} // Overlay div will be on top of other components
+      />
       <Canvas
         className={`w-full h-full bg-black ${isIntroVisible ? "blur" : ""}`}
         style={{ filter: isIntroVisible ? "blur(5px)" : "none" }}
