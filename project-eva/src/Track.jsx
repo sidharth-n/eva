@@ -26,7 +26,7 @@ function Track() {
         if (firstTrack.zPosition === 50 && updatedTracks.length === 1) {
           // Create and introduce the new track when first track reaches zPosition of 50
           const newTrack = {
-            zPosition: -175, // Set the new track's zPosition to -220
+            zPosition: -170, // Set the new track's zPosition to -220
             object: trackScene.clone(),
           };
           newTrack.object.scale.set(0.01, 0.01, 0.01);
