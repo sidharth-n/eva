@@ -1,12 +1,28 @@
 import { useState, useEffect } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
-import { PerspectiveCamera } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 
 function Track() {
+  const [zPosition, setZPosition] = useState(-20); // Initial Z position
   const track = useGLTF("./env.glb");
-  track.scene.position.set(0, -4, -20);
-  track.scene.scale.set(0.01, 0.01, 0.01);
-  track.scene.rotation.set(0, 1.57, 0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setZPosition((prevZ) => {
+        const newZ = prevZ + 1; // Adjust this value to control the speed
+        if (newZ > 150) {
+          clearInterval(intervalId); // Stop the interval once Z position reaches 150
+        }
+        return newZ;
+      });
+    }, 10); // Adjust this value to control the frequency of updates
+
+    return () => clearInterval(intervalId); // Clear the interval when component unmounts
+  }, []);
+
+  useEffect(() => {
+    track.scene.position.set(0, -4, zPosition);
+  }, [track, zPosition]);
+
   return (
     <>
       <primitive object={track.scene} receiveShadow />
